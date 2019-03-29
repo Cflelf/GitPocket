@@ -1,0 +1,6 @@
+framework module DJTableViewVM {
+  umbrella header "DJTableViewVM-umbrella.h"
+
+  export *
+  module * { export * }
+}
