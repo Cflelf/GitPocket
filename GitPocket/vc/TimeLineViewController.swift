@@ -31,7 +31,7 @@ class TimeLineViewController:UIViewController{
     }
     
     func getTimeLine(user:UserModel){
-        UserService.shared.getModels(by: user.received_events_url, completionHandler: { (timelines:[ReceivedEventModel]) in
+        UserService.shared.getModels(by: user.received_events_url, parameters: nil, completionHandler: { (timelines:[ReceivedEventModel]) in
             self.dataArray = timelines
             self.tableview.reloadData()
         })

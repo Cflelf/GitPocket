@@ -69,12 +69,12 @@ class UserView: UIView {
         reposLabel.text = "-\nRepos"
         
         if let startIndex = user.following_url.firstIndex(of: "{"){
-            UserService.shared.getModels(by: String(user.following_url[..<startIndex])) { [weak self](models:[UserModel]) in
+            UserService.shared.getModels(by: String(user.following_url[..<startIndex]), parameters: nil) { [weak self](models:[UserModel]) in
                 self?.followingLabel.text = "\(models.count)\nFollowing"
             }
         }
         
-        UserService.shared.getModels(by: user.followers_url) { [weak self](models:[UserModel]) in
+        UserService.shared.getModels(by: user.followers_url, parameters: nil) { [weak self](models:[UserModel]) in
             self?.followerLabel.text = "\(models.count)\nFollowers"
         }
     }

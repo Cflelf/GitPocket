@@ -44,6 +44,11 @@ class RepoModel: Object,HandyJSON{
     @objc dynamic var created_at:String = ""
     @objc dynamic var contents_url:String = ""
     @objc dynamic var issues_url:String = ""
+    @objc dynamic var `private`:Bool = false
+    @objc dynamic var git_url:String = ""
+    @objc dynamic var ssh_url:String = ""
+    @objc dynamic var clone_url:String = ""
+    @objc dynamic var svn_url:String = ""
 
     override static func ignoredProperties() -> [String] {
         return ["owner"]
@@ -56,6 +61,7 @@ struct CommitResModel: HandyJSON{
     var message:String?
     var additions:Int?
     var deletions:Int?
+    var author:UserModel?
     
     mutating func mapping(mapper: HelpingMapper) {
         mapper <<<
@@ -74,10 +80,13 @@ struct CommitResModel: HandyJSON{
 struct BranchModel: HandyJSON {
     var name:String?
     var url:String?
+    var sha:String?
     
     mutating func mapping(mapper: HelpingMapper) {
         mapper <<<
             self.url <-- "commit.url"
+        mapper <<<
+            self.sha <-- "commit.sha"
     }
 }
 
@@ -87,4 +96,16 @@ struct RepoContentModel: HandyJSON{
     var type:String?
     var content:String?
     var size:Int?
+    var url:String?
+}
+
+struct RepoIssueModel: HandyJSON {
+    var url:String?
+    var user:UserModel?
+    var number:Int?
+    var state:String?
+    var title:String?
+    var created_at:String?
+    var comments:Int?
+    var closed_at:String?
 }

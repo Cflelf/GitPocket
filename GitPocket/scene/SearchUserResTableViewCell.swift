@@ -49,7 +49,7 @@ class SearchUserResTableViewCell: UITableViewCell {
         avatarView.image = nil
         
         if let url = URL(string: user.avatar_url ){
-            avatarView.sd_setImage(with: url, completed: nil)
+            avatarView.sd_setImage(with: url, placeholderImage: UIImage(named: "user"), options: .retryFailed, completed: nil)
         }
         
         fullNameLabel.text = user.login

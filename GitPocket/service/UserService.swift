@@ -11,16 +11,16 @@ import HandyJSON
 
 protocol MyServiceProtocol {
     func getModel<Model:HandyJSON>(by url:String,completionHandler:@escaping (_ model:Model)->Void)
-    func getModels<Model:HandyJSON>(by url:String,completionHandler:@escaping (_ model:[Model])->Void)
+    func getModels<Model:HandyJSON>(by url:String,parameters:[String:Any]?,completionHandler:@escaping (_ model:[Model])->Void)
 }
 
 extension MyServiceProtocol{
-    func getModels<Model:HandyJSON>(by url:String,completionHandler:@escaping (_ model:[Model])->Void){
+    func getModels<Model:HandyJSON>(by url:String,parameters:[String:Any]?,completionHandler:@escaping (_ model:[Model])->Void){
         guard let url = URL(string: url) else{
             return
         }
         
-        Alamofire.request(url).responseString { (response) in
+        Alamofire.request(url,parameters:parameters).responseString { (response) in
             if response.result.isSuccess {
                 
                 if var jsonString = response.result.value {

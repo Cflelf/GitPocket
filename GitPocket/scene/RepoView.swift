@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol RepoViewDelegate: NSObjectProtocol {
+    func tapIssue(url:String)
+    func tapUser(url:String)
+}
+
 class RepoView: UIView {
     @IBOutlet weak var ownerAvatarView: UIImageView!
     @IBOutlet weak var ownerNameLabel: UILabel!
@@ -19,13 +24,15 @@ class RepoView: UIView {
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var despView: UITextView!
-    @IBOutlet weak var commitNumLabel: UILabel!
     @IBOutlet weak var branchNumLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var contributorNumLabel: UILabel!
     @IBOutlet weak var issueNumLabel: UILabel!
     @IBOutlet weak var lanLabel: UILabel!
     @IBOutlet weak var topicView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    weak var delegate:RepoViewDelegate?
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -69,17 +76,30 @@ class RepoView: UIView {
         sizeLabel.text = "\(repo.size) KB"
         lanLabel.text = repo.language.isEmpty ? "-" : repo.language
         issueNumLabel.text = "\(repo.open_issues.format()) issues"
+        dateLabel.text = "\(repo.created_at.split(separator: "T").first ?? "") created"
         
-        RepoService.shared.getModels(by: repo.contributors_url) { [weak self](models:[UserModel]) in
+        issueNumLabel.superview?.viewCallBack = {
+            self.delegate?.tapIssue(url: repo.issues_url)
+        }
+        
+        starNumLabel.viewCallBack = {
+            self.delegate?.tapUser(url:repo.stargazers_url)
+        }
+        
+        contributorNumLabel.viewCallBack = {
+            self.delegate?.tapUser(url:repo.contributors_url)
+        }
+        
+        watchNumLabel.viewCallBack = {
+            self.delegate?.tapUser(url: repo.subscribers_url)
+        }
+        
+        RepoService.shared.getModels(by: repo.contributors_url, parameters: nil) { [weak self](models:[UserModel]) in
             self?.contributorNumLabel.text = "\(models.count) contributors"
         }
-        if let startIndex = repo.commits_url.firstIndex(of: "{"){
-            RepoService.shared.getModels(by: String(repo.commits_url[..<startIndex]), completionHandler: { [weak self](models:[CommitResModel]) in
-                self?.commitNumLabel.text = "\(models.count.format()) commits"
-            })
-        }
+    
         if let startIndex = repo.branches_url.firstIndex(of: "{"){
-            RepoService.shared.getModels(by: String(repo.branches_url[..<startIndex]), completionHandler: { [weak self](models:[BranchModel]) in
+            RepoService.shared.getModels(by: String(repo.branches_url[..<startIndex]), parameters: nil, completionHandler: { [weak self](models:[BranchModel]) in
                 self?.branchNumLabel.text = "\(models.count.format()) branches"
             })
         }
