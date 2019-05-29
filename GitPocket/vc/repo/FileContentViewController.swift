@@ -9,6 +9,8 @@
 import UIKit
 import Highlightr
 import MarkdownView
+import cmark_gfm_swift
+import WebKit
 
 class FileContentViewController: UIViewController{
     
@@ -24,6 +26,16 @@ class FileContentViewController: UIViewController{
         }
     }
     
+    func setContent(str:String){
+        let mdView = MarkdownView()
+        
+        view.addSubview(mdView)
+        mdView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        mdView.load(markdown: "```diff\n\(str)```")
+    }
+    
     func setupContent(str:String,fileName:String){
         
         guard let fileType = fileName.split(separator: ".").last else{
@@ -34,6 +46,7 @@ class FileContentViewController: UIViewController{
         if let str = str.base64Decoded(){
             if fileType == "md" || fileType.lowercased() == "markdown"{
                 let mdView = MarkdownView()
+                
                 view.addSubview(mdView)
                 mdView.snp.makeConstraints { (make) in
                     make.edges.equalToSuperview()

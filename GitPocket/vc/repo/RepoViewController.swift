@@ -14,7 +14,7 @@ class RepoViewController: UIViewController{
     
     let tableView: UITableView = UITableView(frame: .zero, style: .grouped)
     var tableViewVM: DJTableViewVM!
-    lazy var repoView: RepoView = RepoView(frame:CGRect(x: 0, y: 0, width: self.view.frame.width, height: 386))
+    lazy var repoView: RepoView = RepoView(frame:CGRect(x: 0, y: 0, width: self.view.frame.width, height: 402))
     lazy var section1:DJTableViewVMSection = DJTableViewVMSection(headerHeight: 20)
     lazy var section2:DJTableViewVMSection = DJTableViewVMSection(headerHeight: 20)
     
@@ -38,6 +38,9 @@ class RepoViewController: UIViewController{
         tableViewVM.reloadData()
         
         repoView.delegate = self
+        repoView.backIcon.viewCallBack = {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +79,14 @@ class RepoViewController: UIViewController{
             row.selectionHandler = {[weak self](_) in
                 let vc = BranchListViewController()
                 vc.setupTable(url: repo.branches_url,commitURL:repo.commits_url)
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        
+        if let row = (section1.rows?[0] as? DJTableViewVMRow){
+            row.selectionHandler = {[weak self](_) in
+                let vc = EventListViewController()
+                vc.setupTable(url: repo.events_url)
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
         }

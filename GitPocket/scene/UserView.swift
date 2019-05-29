@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol UserViewDelegate: NSObjectProtocol {
+    func tapToUserList(url:String,title:String)
+    func tapRepo(url:String)
+}
+
 class UserView: UIView {
 
     @IBOutlet weak var reposLabel: UILabel!
@@ -16,9 +21,10 @@ class UserView: UIView {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bgView: UIImageView!
     @IBOutlet weak var avatarView: UIImageView!
+    weak var delegate:UserViewDelegate?
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame:CGRect) {
+        super.init(frame: frame)
         
         myInit()
     }
@@ -38,12 +44,6 @@ class UserView: UIView {
         
         avatarView.clipsToBounds = true
         avatarView.layer.cornerRadius = 40
-        
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapLabel(_:)))
-        
-        followerLabel.addGestureRecognizer(gesture)
-        followingLabel.addGestureRecognizer(gesture)
-        reposLabel.addGestureRecognizer(gesture)
     }
     
     
@@ -56,6 +56,7 @@ class UserView: UIView {
         followingLabel.text = "\(user.following)\nFollowing"
         followerLabel.text  = "\(user.followers)\nFollowers"
         reposLabel.text = "\(user.public_repos)\nRepos"
+        setupTapCallBack(user: user)
     }
     
     func setupOthers(with user:UserModel){
@@ -68,27 +69,26 @@ class UserView: UIView {
         followerLabel.text  = "-\nFollowers"
         reposLabel.text = "-\nRepos"
         
-        if let startIndex = user.following_url.firstIndex(of: "{"){
-            UserService.shared.getModels(by: String(user.following_url[..<startIndex]), parameters: nil) { [weak self](models:[UserModel]) in
-                self?.followingLabel.text = "\(models.count)\nFollowing"
-            }
+        UserService.shared.getModel(by: user.url) { [weak self](model:UserModel) in
+            self?.followingLabel.text = "\(model.following)\nFollowing"
+            self?.followerLabel.text  = "\(model.followers)\nFollowers"
+            self?.reposLabel.text = "\(model.public_repos)\nRepos"
         }
         
-        UserService.shared.getModels(by: user.followers_url, parameters: nil) { [weak self](models:[UserModel]) in
-            self?.followerLabel.text = "\(models.count)\nFollowers"
-        }
+        setupTapCallBack(user: user)
     }
     
-    @objc func tapLabel(_ sender:UILabel){
-        switch sender {
-        case followerLabel:
-            break
-        case followingLabel:
-            break
-        case reposLabel:
-            break
-        default:
-            break
+    func setupTapCallBack(user:UserModel){
+        followerLabel.viewCallBack = {
+            self.delegate?.tapToUserList(url: user.followers_url, title: "Followers")
+        }
+        
+        followingLabel.viewCallBack = {
+            self.delegate?.tapToUserList(url: user.following_url, title: "Following")
+        }
+        
+        reposLabel.viewCallBack = {
+            self.delegate?.tapRepo(url: user.repos_url)
         }
     }
 }

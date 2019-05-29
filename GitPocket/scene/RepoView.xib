@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,6 +25,7 @@
                 <outlet property="ownerAvatarView" destination="h6F-GE-5Ur" id="Wrm-kC-ges"/>
                 <outlet property="ownerNameLabel" destination="La5-vz-Pvv" id="kIZ-5v-6rG"/>
                 <outlet property="sizeLabel" destination="otW-g6-mbo" id="YKe-fE-U9b"/>
+                <outlet property="starImageView" destination="Vef-fe-dQ0" id="Gq5-uH-f93"/>
                 <outlet property="starNumLabel" destination="hRK-p6-2Sb" id="naL-vV-Nhm"/>
                 <outlet property="topicView" destination="ajQ-hm-qqe" id="5HD-RM-iZO"/>
                 <outlet property="watchNumLabel" destination="BzG-34-PxF" id="yqd-uI-aH7"/>
@@ -36,12 +37,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zxl-cX-hDX">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="224.5"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="242"/>
                 </imageView>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WD-Aj-ZY8">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="224.5"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="242"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aAE-gH-UKx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="224.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="242"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qvh-V7-5GY">
@@ -130,10 +131,10 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="-" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHe-Ig-PlE">
-                                <rect key="frame" x="16" y="186" width="343" height="30.5"/>
+                                <rect key="frame" x="16" y="186" width="343" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="48" id="z1Z-WG-3ii"/>
+                                    <constraint firstAttribute="height" constant="48" id="z1Z-WG-3ii"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -172,7 +173,7 @@
                     <blurEffect style="dark"/>
                 </visualEffectView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qCv-Y9-8Wp">
-                    <rect key="frame" x="4" y="228.5" width="367" height="44"/>
+                    <rect key="frame" x="4" y="262" width="367" height="44"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mDK-Zl-AOk">
                             <rect key="frame" x="0.0" y="0.0" width="181.5" height="44"/>
@@ -230,7 +231,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="30T-6p-35Y">
-                    <rect key="frame" x="4" y="276.5" width="367" height="44"/>
+                    <rect key="frame" x="4" y="310" width="367" height="44"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0H-rc-Ymi">
                             <rect key="frame" x="0.0" y="0.0" width="181.5" height="44"/>
@@ -288,7 +289,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7RV-iQ-04p">
-                    <rect key="frame" x="4" y="324.5" width="367" height="44"/>
+                    <rect key="frame" x="4" y="358" width="367" height="44"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFM-uz-sGu">
                             <rect key="frame" x="0.0" y="0.0" width="181.5" height="44"/>
@@ -350,7 +351,7 @@
             <constraints>
                 <constraint firstItem="7RV-iQ-04p" firstAttribute="top" secondItem="30T-6p-35Y" secondAttribute="bottom" constant="4" id="06b-aw-Yhp"/>
                 <constraint firstAttribute="trailing" secondItem="7RV-iQ-04p" secondAttribute="trailing" constant="4" id="3Vg-Sd-ZJx"/>
-                <constraint firstItem="qCv-Y9-8Wp" firstAttribute="top" secondItem="Zxl-cX-hDX" secondAttribute="bottom" constant="4" id="Dk8-rJ-qf2"/>
+                <constraint firstItem="qCv-Y9-8Wp" firstAttribute="top" secondItem="Zxl-cX-hDX" secondAttribute="bottom" constant="20" id="Dk8-rJ-qf2"/>
                 <constraint firstItem="Zxl-cX-hDX" firstAttribute="leading" secondItem="Qls-uv-EWw" secondAttribute="leading" id="GFr-az-dhb"/>
                 <constraint firstItem="30T-6p-35Y" firstAttribute="top" secondItem="qCv-Y9-8Wp" secondAttribute="bottom" constant="4" id="JsF-SN-z16"/>
                 <constraint firstItem="1WD-Aj-ZY8" firstAttribute="trailing" secondItem="Qls-uv-EWw" secondAttribute="trailing" id="PRs-mN-7Zr"/>
@@ -371,14 +372,14 @@
         </view>
     </objects>
     <resources>
-        <image name="branch" width="32" height="32"/>
-        <image name="contributor" width="32" height="32"/>
-        <image name="fork" width="32" height="32"/>
-        <image name="issue" width="32" height="32"/>
-        <image name="language" width="32" height="32"/>
-        <image name="size" width="32" height="32"/>
-        <image name="star" width="32" height="32"/>
-        <image name="time" width="32" height="32"/>
-        <image name="watch" width="32" height="32"/>
+        <image name="branch" width="16" height="16"/>
+        <image name="contributor" width="16" height="16"/>
+        <image name="fork" width="16" height="16"/>
+        <image name="issue" width="16" height="16"/>
+        <image name="language" width="16" height="16"/>
+        <image name="size" width="16" height="16"/>
+        <image name="star" width="16" height="16"/>
+        <image name="time" width="16" height="16"/>
+        <image name="watch" width="16" height="16"/>
     </resources>
 </document>

@@ -10,8 +10,14 @@ import UIKit
 
 class UserViewController: UIViewController{
     
+    lazy var userView:UserView = UserView(frame:CGRect(x: 0, y: 0, width: self.view.frame.width, height: 273))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(userView)
+        
+        userView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,7 +35,23 @@ class UserViewController: UIViewController{
     }
 }
 
-extension UserViewController:UIGestureRecognizerDelegate{
+extension UserViewController: UserViewDelegate{
+    func tapToUserList(url: String, title: String) {
+        let vc = UserListViewController()
+        vc.title = title
+        vc.setupTable(url: url)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tapRepo(url: String) {
+        let vc = RepoListViewController()
+        vc.setupTable(url: url)
+        vc.title = "Repos"
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension UserViewController: UIGestureRecognizerDelegate{
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }

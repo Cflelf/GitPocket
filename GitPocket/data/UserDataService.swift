@@ -29,6 +29,10 @@ class UserDataService{
         return realm.objects(UserModel.self).filter("access_token == '\(accessToken)'").first
     }
     
+    func getAllUsers()->[UserModel]{
+        return realm.objects(UserModel.self).compactMap{$0}
+    }
+    
     func setDefaultRealmForUser(accessToken: String) {
         var config = Realm.Configuration()
         
@@ -36,9 +40,13 @@ class UserDataService{
         config.fileURL = config.fileURL!.deletingLastPathComponent()
             .appendingPathComponent("\(accessToken).realm")
         
-        print(config.fileURL?.absoluteString)
-        
         // 将这个配置应用到默认的 Realm 数据库当中
         Realm.Configuration.defaultConfiguration = config
+    }
+    
+    func modifyUser(user:UserModel){
+        try! realm.write {
+            realm.add(user, update: true)
+        }
     }
 }

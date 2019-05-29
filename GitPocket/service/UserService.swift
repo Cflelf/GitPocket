@@ -57,14 +57,42 @@ class UserService:MyServiceProtocol{
     
     var currentUser:UserModel?
     
-    func getMyInfo(completionHandler:@escaping (_ model:UserModel)->Void){
-        if let user = currentUser{
-            completionHandler(user)
+    func checkStar(repoName:String,ownerName:String,completionHandler:@escaping (_ bool:Bool)->Void){
+        guard let url = URL(string: "https://api.github.com/user/starred/\(ownerName)/\(repoName)") , let key = ACCESS_KEY else{
+            completionHandler(false)
+            return
         }
         
+        Alamofire.request(url, method: .get, parameters: ["access_token":key]).responseString { (response) in
+            if response.result.isSuccess{
+                if let jsonString = response.result.value , jsonString.isEmpty {
+                    completionHandler(true)
+                }else{
+                    completionHandler(false)
+                }
+            }
+        }
+    }
+    
+    func starRepo(method:HTTPMethod = .put,repoName:String,ownerName:String,completionHandler:@escaping (_ b:Bool)->Void){
+        guard let url = URL(string: "https://api.github.com/user/starred/\(ownerName)/\(repoName)") , let key = ACCESS_KEY else{
+            completionHandler(false)
+            return
+        }
+        
+        Alamofire.request(url, method: method, parameters: ["access_token":key]).responseString { (response) in
+            if response.result.isSuccess{
+                completionHandler(true)
+            }
+        }
+    }
+    
+    func getMyInfo(completionHandler:@escaping (_ model:UserModel)->Void){
         guard let url = URL(string: "https://api.github.com/user") , let key = ACCESS_KEY else{
             return
         }
+        
+        print(key)
         
         Alamofire.request(url, method: .get, parameters: ["access_token":key]).responseString { (response) in
             if response.result.isSuccess {
@@ -74,6 +102,8 @@ class UserService:MyServiceProtocol{
                     if let responseModel = JSONDeserializer<UserModel>.deserializeFrom(json: jsonString) {
                         responseModel.access_token = key
                         self.currentUser = responseModel
+                        
+                        NotificationCenter.default.post(Notification(name: Notification.Name.init("LoginSuccess")))
                         
                         UserDataService.shared.saveUser(user: responseModel)
                         

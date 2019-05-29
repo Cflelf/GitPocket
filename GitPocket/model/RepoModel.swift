@@ -14,6 +14,16 @@ struct ReceivedEventModel: HandyJSON{
     var type:String?
     var actor:ActorModel?
     var repo:RepoModel?
+    var comment:RepoIssueModel?
+    var issue:RepoIssueModel?
+    var created_at:String?
+    
+    mutating func mapping(mapper: HelpingMapper) {
+        mapper <<<
+            self.comment <-- "payload.comment"
+        mapper <<<
+            self.issue <-- "payload.issue"
+    }
 }
 
 struct ActorModel: HandyJSON{
@@ -49,6 +59,7 @@ class RepoModel: Object,HandyJSON{
     @objc dynamic var ssh_url:String = ""
     @objc dynamic var clone_url:String = ""
     @objc dynamic var svn_url:String = ""
+    @objc dynamic var events_url:String = ""
 
     override static func ignoredProperties() -> [String] {
         return ["owner"]
@@ -62,6 +73,8 @@ struct CommitResModel: HandyJSON{
     var additions:Int?
     var deletions:Int?
     var author:UserModel?
+    var url:String?
+    var files:[CommitFileModel]?
     
     mutating func mapping(mapper: HelpingMapper) {
         mapper <<<
@@ -108,4 +121,58 @@ struct RepoIssueModel: HandyJSON {
     var created_at:String?
     var comments:Int?
     var closed_at:String?
+    var body:String?
+    var comments_url:String?
+    var labels:[IssueLabelModel]?
+}
+
+struct CommitFileModel: HandyJSON{
+    var filename:String?
+    var additions:Int?
+    var deletions:Int?
+    var status:String?
+    var patch:String?
+}
+
+struct TrendRepoModel: HandyJSON{
+    var author:String?
+    var name:String?
+    var url:String?
+    var stars:Int?
+    var forks:Int?
+    var desp:String?
+    var builtBy:[TrendRepoUserModel]?
+    var languageColor:String?
+    var language:String?
+    var currentPeriodStars:Int?
+}
+
+struct TrendRepoUserModel: HandyJSON{
+    var avatar:String?
+    var username:String?
+    var href:String?
+}
+
+struct TrendUserModel: HandyJSON{
+    var name:String?
+    var url:String?
+    var avatar:String?
+    var repoUrl:String?
+    var repoName:String?
+    var desp:String?
+    var username:String?
+    
+    mutating func mapping(mapper: HelpingMapper) {
+        mapper <<<
+            self.repoUrl <-- "repo.url"
+        mapper <<<
+            self.repoName <-- "repo.name"
+        mapper <<<
+            self.desp <-- "repo.desp"
+    }
+}
+
+struct IssueLabelModel: HandyJSON {
+    var name:String?
+    var color:String?
 }

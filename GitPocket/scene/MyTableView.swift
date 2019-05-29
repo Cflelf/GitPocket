@@ -12,12 +12,16 @@ import MJRefresh
 class MyTableView: UITableView{
     let foot = MJRefreshAutoNormalFooter()
     
-    override init(frame: CGRect, style: UITableViewStyle) {
+    var index:Int = 1
+    
+    var url:String = ""
+    
+    override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
         self.mj_footer = foot
         
-        foot.setTitle("Pull to load more", for: .idle)
+        foot.setTitle("Load more", for: .idle)
         foot.setTitle("Loading...", for: .refreshing)
         foot.setTitle("No more data", for: .noMoreData)
     }

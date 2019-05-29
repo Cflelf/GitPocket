@@ -34,7 +34,7 @@ class UserListViewController: UIViewController{
     }
     
     @objc func footerRefresh() {
-        UserService.shared.getModels(by: url, parameters: ["page":index+1]) { [weak self](models:[UserModel]) in
+        UserService.shared.getModels(by: url.format(), parameters: ["page":index+1]) { [weak self](models:[UserModel]) in
             if models.isEmpty{
                 self?.tableView.mj_footer.resetNoMoreData()
                 self?.tableView.mj_footer.endRefreshingWithNoMoreData()
@@ -55,6 +55,12 @@ class UserListViewController: UIViewController{
             self?.tableView.reloadData()
         }
     }
+    
+    func setupTable(url:String,model:SearchUserModel){
+        self.url = url
+        self.users = model.items ?? []
+        self.tableView.reloadData()
+    }
 }
 
 extension UserListViewController: UITableViewDelegate,UITableViewDataSource{
@@ -71,5 +77,14 @@ extension UserListViewController: UITableViewDelegate,UITableViewDataSource{
         return cell!
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mine") as? MineViewController
+        vc?.user = users[indexPath.row]
+        vc?.isOwner = false
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+            vc?.userView.setupOthers(with: self.users[indexPath.row])
+        }
+        
+        navigationController?.pushViewController(vc!, animated: true)
+    }
 }

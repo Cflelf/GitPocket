@@ -13,11 +13,8 @@
 		2E06A38A22435CD800B19B6C /* SearchRepoResTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E06A38922435CD800B19B6C /* SearchRepoResTableViewCell.swift */; };
 		2E06A38C224370E000B19B6C /* SearchUserResTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E06A38B224370E000B19B6C /* SearchUserResTableViewCell.swift */; };
 		2E06A38E22448FF300B19B6C /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E06A38D22448FF300B19B6C /* MineViewController.swift */; };
-		2E06A7A62248BDEC00B19B6C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E06A7A52248BDEB00B19B6C /* RealmSwift.framework */; };
-		2E06A7A72248BDEC00B19B6C /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E06A7A52248BDEB00B19B6C /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2E06A7A92248BE0900B19B6C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E06A7A82248BE0900B19B6C /* Realm.framework */; };
-		2E06A7AA2248BE0900B19B6C /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E06A7A82248BE0900B19B6C /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2E06A7AD2248C6A900B19B6C /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E06A7AC2248C6A900B19B6C /* UserDataService.swift */; };
+		2E0C3C8A2288895900A76384 /* MyReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C3C892288895900A76384 /* MyReposViewController.swift */; };
 		2E395689224A2E1E008E384E /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E395688224A2E1D008E384E /* UserTableViewController.swift */; };
 		2E39568B224A30D6008E384E /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E39568A224A30D6008E384E /* UserView.swift */; };
 		2E39568D224A463E008E384E /* UserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E39568C224A463E008E384E /* UserView.xib */; };
@@ -27,6 +24,27 @@
 		2E395695224CB783008E384E /* RepoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E395694224CB782008E384E /* RepoView.xib */; };
 		2E395697224CB798008E384E /* RepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E395696224CB798008E384E /* RepoView.swift */; };
 		2E3ED98D224E3FCB00FFC1BC /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED98C224E3FCB00FFC1BC /* FileTableViewCell.swift */; };
+		2E3ED991224F39FA00FFC1BC /* FileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED990224F39FA00FFC1BC /* FileListViewController.swift */; };
+		2E3ED993224F517200FFC1BC /* FileContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED992224F517200FFC1BC /* FileContentViewController.swift */; };
+		2E3ED99522506E9500FFC1BC /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED99422506E9500FFC1BC /* IssueListViewController.swift */; };
+		2E3ED99722519C4800FFC1BC /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED99622519C4800FFC1BC /* UserListViewController.swift */; };
+		2E3ED9992251ED9800FFC1BC /* MyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED9982251ED9800FFC1BC /* MyTableView.swift */; };
+		2E3ED99B2251FBBB00FFC1BC /* CommitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED99A2251FBBB00FFC1BC /* CommitListViewController.swift */; };
+		2E3ED99E2251FE7900FFC1BC /* BranchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED99D2251FE7900FFC1BC /* BranchListViewController.swift */; };
+		2E3ED9A02252426D00FFC1BC /* RepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED99F2252426D00FFC1BC /* RepoListViewController.swift */; };
+		2E3ED9A2225306B800FFC1BC /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED9A1225306B800FFC1BC /* EventListViewController.swift */; };
+		2E3ED9A42253076E00FFC1BC /* ListVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED9A32253076E00FFC1BC /* ListVCDelegate.swift */; };
+		2E3ED9A6225356C200FFC1BC /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED9A5225356C200FFC1BC /* IssueDetailViewController.swift */; };
+		2E3ED9A82254697D00FFC1BC /* CommitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ED9A72254697C00FFC1BC /* CommitDetailViewController.swift */; };
+		2E42BAD92279531B00E8B91E /* RepoDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E42BAD82279531B00E8B91E /* RepoDataService.swift */; };
+		2E4C39902258736F00BE9A62 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4C398E2258736C00BE9A62 /* RealmSwift.framework */; };
+		2E4C39912258736F00BE9A62 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4C398E2258736C00BE9A62 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2E4C39922258736F00BE9A62 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4C398F2258736F00BE9A62 /* Realm.framework */; };
+		2E4C39932258736F00BE9A62 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4C398F2258736F00BE9A62 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2E4C3995225898CC00BE9A62 /* TrendingRepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C3994225898CC00BE9A62 /* TrendingRepoView.swift */; };
+		2E4C399722589ACE00BE9A62 /* TrendingRepoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4C399622589ACE00BE9A62 /* TrendingRepoView.xib */; };
+		2E4C39992258DDAE00BE9A62 /* TrendingUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4C39982258DDAE00BE9A62 /* TrendingUserView.xib */; };
+		2E4C399B2258DDC400BE9A62 /* TrendingUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C399A2258DDC400BE9A62 /* TrendingUserView.swift */; };
 		2E6E086A222515A800F4A50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E0869222515A800F4A50E /* AppDelegate.swift */; };
 		2E6E086C222515A800F4A50E /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E086B222515A800F4A50E /* AddAccountViewController.swift */; };
 		2E6E086F222515A800F4A50E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E6E086D222515A800F4A50E /* Main.storyboard */; };
@@ -42,14 +60,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2E06A7A12248BC6600B19B6C /* Embed Frameworks */ = {
+		2E4C3987225872DF00BE9A62 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2E06A7AA2248BE0900B19B6C /* Realm.framework in Embed Frameworks */,
-				2E06A7A72248BDEC00B19B6C /* RealmSwift.framework in Embed Frameworks */,
+				2E4C39932258736F00BE9A62 /* Realm.framework in Embed Frameworks */,
+				2E4C39912258736F00BE9A62 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,9 +83,8 @@
 		2E06A38922435CD800B19B6C /* SearchRepoResTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepoResTableViewCell.swift; sourceTree = "<group>"; };
 		2E06A38B224370E000B19B6C /* SearchUserResTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserResTableViewCell.swift; sourceTree = "<group>"; };
 		2E06A38D22448FF300B19B6C /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
-		2E06A7A52248BDEB00B19B6C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
-		2E06A7A82248BE0900B19B6C /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		2E06A7AC2248C6A900B19B6C /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
+		2E0C3C892288895900A76384 /* MyReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReposViewController.swift; sourceTree = "<group>"; };
 		2E395688224A2E1D008E384E /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		2E39568A224A30D6008E384E /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		2E39568C224A463E008E384E /* UserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserView.xib; sourceTree = "<group>"; };
@@ -77,6 +94,25 @@
 		2E395694224CB782008E384E /* RepoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoView.xib; sourceTree = "<group>"; };
 		2E395696224CB798008E384E /* RepoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoView.swift; sourceTree = "<group>"; };
 		2E3ED98C224E3FCB00FFC1BC /* FileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
+		2E3ED990224F39FA00FFC1BC /* FileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListViewController.swift; sourceTree = "<group>"; };
+		2E3ED992224F517200FFC1BC /* FileContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContentViewController.swift; sourceTree = "<group>"; };
+		2E3ED99422506E9500FFC1BC /* IssueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListViewController.swift; sourceTree = "<group>"; };
+		2E3ED99622519C4800FFC1BC /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		2E3ED9982251ED9800FFC1BC /* MyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableView.swift; sourceTree = "<group>"; };
+		2E3ED99A2251FBBB00FFC1BC /* CommitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitListViewController.swift; sourceTree = "<group>"; };
+		2E3ED99D2251FE7900FFC1BC /* BranchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchListViewController.swift; sourceTree = "<group>"; };
+		2E3ED99F2252426D00FFC1BC /* RepoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListViewController.swift; sourceTree = "<group>"; };
+		2E3ED9A1225306B800FFC1BC /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
+		2E3ED9A32253076E00FFC1BC /* ListVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVCDelegate.swift; sourceTree = "<group>"; };
+		2E3ED9A5225356C200FFC1BC /* IssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
+		2E3ED9A72254697C00FFC1BC /* CommitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitDetailViewController.swift; sourceTree = "<group>"; };
+		2E42BAD82279531B00E8B91E /* RepoDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDataService.swift; sourceTree = "<group>"; };
+		2E4C398E2258736C00BE9A62 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		2E4C398F2258736F00BE9A62 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		2E4C3994225898CC00BE9A62 /* TrendingRepoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRepoView.swift; sourceTree = "<group>"; };
+		2E4C399622589ACE00BE9A62 /* TrendingRepoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingRepoView.xib; sourceTree = "<group>"; };
+		2E4C39982258DDAE00BE9A62 /* TrendingUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingUserView.xib; sourceTree = "<group>"; };
+		2E4C399A2258DDC400BE9A62 /* TrendingUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingUserView.swift; sourceTree = "<group>"; };
 		2E6E0866222515A800F4A50E /* GitPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6E0869222515A800F4A50E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E6E086B222515A800F4A50E /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
@@ -98,8 +134,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E06A7A92248BE0900B19B6C /* Realm.framework in Frameworks */,
-				2E06A7A62248BDEC00B19B6C /* RealmSwift.framework in Frameworks */,
+				2E4C39922258736F00BE9A62 /* Realm.framework in Frameworks */,
+				2E4C39902258736F00BE9A62 /* RealmSwift.framework in Frameworks */,
 				CF5A3EBB9B79133A297EDFF7 /* Pods_GitPocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,13 +146,17 @@
 		2E06A3882242118200B19B6C /* vc */ = {
 			isa = PBXGroup;
 			children = (
+				2E3ED99C2251FBC000FFC1BC /* repo */,
 				2EAA360B222B936D000BFE7F /* LoginWebViewController.swift */,
 				2E72D556223CE7950007BA18 /* TimeLineViewController.swift */,
 				2E06A3862242117E00B19B6C /* MySearchViewController.swift */,
 				2E6E086B222515A800F4A50E /* AddAccountViewController.swift */,
 				2E06A38D22448FF300B19B6C /* MineViewController.swift */,
 				2E395688224A2E1D008E384E /* UserTableViewController.swift */,
-				2E39568E224B9394008E384E /* RepoViewController.swift */,
+				2E3ED99622519C4800FFC1BC /* UserListViewController.swift */,
+				2E3ED99F2252426D00FFC1BC /* RepoListViewController.swift */,
+				2E3ED9A32253076E00FFC1BC /* ListVCDelegate.swift */,
+				2E0C3C892288895900A76384 /* MyReposViewController.swift */,
 			);
 			path = vc;
 			sourceTree = "<group>";
@@ -125,15 +165,32 @@
 			isa = PBXGroup;
 			children = (
 				2E06A7AC2248C6A900B19B6C /* UserDataService.swift */,
+				2E42BAD82279531B00E8B91E /* RepoDataService.swift */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		2E3ED99C2251FBC000FFC1BC /* repo */ = {
+			isa = PBXGroup;
+			children = (
+				2E3ED990224F39FA00FFC1BC /* FileListViewController.swift */,
+				2E3ED992224F517200FFC1BC /* FileContentViewController.swift */,
+				2E3ED99422506E9500FFC1BC /* IssueListViewController.swift */,
+				2E3ED99A2251FBBB00FFC1BC /* CommitListViewController.swift */,
+				2E3ED99D2251FE7900FFC1BC /* BranchListViewController.swift */,
+				2E39568E224B9394008E384E /* RepoViewController.swift */,
+				2E3ED9A1225306B800FFC1BC /* EventListViewController.swift */,
+				2E3ED9A5225356C200FFC1BC /* IssueDetailViewController.swift */,
+				2E3ED9A72254697C00FFC1BC /* CommitDetailViewController.swift */,
+			);
+			path = repo;
 			sourceTree = "<group>";
 		};
 		2E6E085D222515A800F4A50E = {
 			isa = PBXGroup;
 			children = (
-				2E06A7A82248BE0900B19B6C /* Realm.framework */,
-				2E06A7A52248BDEB00B19B6C /* RealmSwift.framework */,
+				2E4C398F2258736F00BE9A62 /* Realm.framework */,
+				2E4C398E2258736C00BE9A62 /* RealmSwift.framework */,
 				2E6E0868222515A800F4A50E /* GitPocket */,
 				2E6E0867222515A800F4A50E /* Products */,
 				9F1F1B8C91C57A3FADB883EC /* Pods */,
@@ -178,6 +235,11 @@
 				2E395694224CB782008E384E /* RepoView.xib */,
 				2E395696224CB798008E384E /* RepoView.swift */,
 				2E3ED98C224E3FCB00FFC1BC /* FileTableViewCell.swift */,
+				2E3ED9982251ED9800FFC1BC /* MyTableView.swift */,
+				2E4C3994225898CC00BE9A62 /* TrendingRepoView.swift */,
+				2E4C399622589ACE00BE9A62 /* TrendingRepoView.xib */,
+				2E4C39982258DDAE00BE9A62 /* TrendingUserView.xib */,
+				2E4C399A2258DDC400BE9A62 /* TrendingUserView.swift */,
 			);
 			path = scene;
 			sourceTree = "<group>";
@@ -231,8 +293,7 @@
 				2E6E0863222515A800F4A50E /* Frameworks */,
 				2E6E0864222515A800F4A50E /* Resources */,
 				AF1DAF3B4593B1BA6C5DBEC0 /* [CP] Embed Pods Frameworks */,
-				2E06A7A12248BC6600B19B6C /* Embed Frameworks */,
-				2E06A7972248B3DE00B19B6C /* ShellScript */,
+				2E4C3987225872DF00BE9A62 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -284,27 +345,16 @@
 				2E6E0874222515A900F4A50E /* LaunchScreen.storyboard in Resources */,
 				2E395695224CB783008E384E /* RepoView.xib in Resources */,
 				2E6E0871222515A900F4A50E /* Assets.xcassets in Resources */,
+				2E4C39992258DDAE00BE9A62 /* TrendingUserView.xib in Resources */,
 				2E6E086F222515A800F4A50E /* Main.storyboard in Resources */,
 				2E39568D224A463E008E384E /* UserView.xib in Resources */,
+				2E4C399722589ACE00BE9A62 /* TrendingRepoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2E06A7972248B3DE00B19B6C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\n";
-		};
 		7EC7E0BDC0A0BC17BD82CB9A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,16 +383,34 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DJTableViewVM/DJTableViewVM.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Highlightr/Highlightr.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownKit/MarkdownKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyMarkdown/SwiftyMarkdown.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
+				"${BUILT_PRODUCTS_DIR}/cmark-gfm-swift/cmark_gfm_swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DJTableViewVM.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Highlightr.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyMarkdown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/cmark_gfm_swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -356,10 +424,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E3ED99522506E9500FFC1BC /* IssueListViewController.swift in Sources */,
 				2E06A38A22435CD800B19B6C /* SearchRepoResTableViewCell.swift in Sources */,
+				2E3ED9A6225356C200FFC1BC /* IssueDetailViewController.swift in Sources */,
 				2E395697224CB798008E384E /* RepoView.swift in Sources */,
 				2E06A3832241E4F100B19B6C /* SearchService.swift in Sources */,
 				2E39568F224B9394008E384E /* RepoViewController.swift in Sources */,
+				2E3ED9A82254697D00FFC1BC /* CommitDetailViewController.swift in Sources */,
+				2E3ED993224F517200FFC1BC /* FileContentViewController.swift in Sources */,
 				2E06A3872242117E00B19B6C /* MySearchViewController.swift in Sources */,
 				2E72D55B223DFED10007BA18 /* TimeLineTableViewCell.swift in Sources */,
 				2E72D562223E158D0007BA18 /* UserModel.swift in Sources */,
@@ -367,15 +439,27 @@
 				2E06A385224205FE00B19B6C /* SearchModel.swift in Sources */,
 				2E395693224C98D3008E384E /* Constant.swift in Sources */,
 				2E395691224BA797008E384E /* RepoService.swift in Sources */,
+				2E3ED99B2251FBBB00FFC1BC /* CommitListViewController.swift in Sources */,
+				2E3ED9A42253076E00FFC1BC /* ListVCDelegate.swift in Sources */,
 				2E06A7AD2248C6A900B19B6C /* UserDataService.swift in Sources */,
+				2E42BAD92279531B00E8B91E /* RepoDataService.swift in Sources */,
+				2E4C399B2258DDC400BE9A62 /* TrendingUserView.swift in Sources */,
 				2E6E086C222515A800F4A50E /* AddAccountViewController.swift in Sources */,
+				2E3ED99E2251FE7900FFC1BC /* BranchListViewController.swift in Sources */,
+				2E3ED9992251ED9800FFC1BC /* MyTableView.swift in Sources */,
 				2E06A38E22448FF300B19B6C /* MineViewController.swift in Sources */,
 				2E72D55F223E0D190007BA18 /* UserService.swift in Sources */,
 				2E72D557223CE7950007BA18 /* TimeLineViewController.swift in Sources */,
 				2E6FC13A223F4A1500B7979C /* RepoModel.swift in Sources */,
+				2E4C3995225898CC00BE9A62 /* TrendingRepoView.swift in Sources */,
+				2E3ED9A02252426D00FFC1BC /* RepoListViewController.swift in Sources */,
 				2EAA360C222B936D000BFE7F /* LoginWebViewController.swift in Sources */,
+				2E0C3C8A2288895900A76384 /* MyReposViewController.swift in Sources */,
 				2E39568B224A30D6008E384E /* UserView.swift in Sources */,
+				2E3ED99722519C4800FFC1BC /* UserListViewController.swift in Sources */,
 				2E6E086A222515A800F4A50E /* AppDelegate.swift in Sources */,
+				2E3ED9A2225306B800FFC1BC /* EventListViewController.swift in Sources */,
+				2E3ED991224F39FA00FFC1BC /* FileListViewController.swift in Sources */,
 				2E395689224A2E1E008E384E /* UserTableViewController.swift in Sources */,
 				2E06A38C224370E000B19B6C /* SearchUserResTableViewCell.swift in Sources */,
 			);
@@ -460,6 +544,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -513,6 +598,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -538,7 +624,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.edu.nju.GitPocket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -564,7 +650,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.edu.nju.GitPocket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

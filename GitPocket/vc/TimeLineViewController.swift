@@ -8,22 +8,66 @@
 
 import UIKit
 import SDWebImage
+import MJRefresh
+import NVActivityIndicatorView
 
-class TimeLineViewController:UIViewController{
-    @IBOutlet weak var tableview: UITableView!
+class TimeLineViewController:UIViewController, NVActivityIndicatorViewable{
+    var tableview: MyTableView = MyTableView(frame: .zero)
     
     var dataArray:[ReceivedEventModel] = []
     
+    let header = MJRefreshNormalHeader()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(notify), name: NSNotification.Name.init("LoginSuccess"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(setup), name: NSNotification.Name.init("LoginSuccess"), object: nil)
+        view.addSubview(tableview)
+        tableview.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
         
         tableview.register(TimeLineTableViewCell.self, forCellReuseIdentifier: "timeline")
         tableview.delegate = self
         tableview.dataSource = self
         
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "MM-dd hh:mm:ss"
+        header.lastUpdatedTimeText = { (date)->String in
+            if let date = date{
+                return "Last updated at \(dateFormat.string(from: date))"
+            }
+            return ""
+        }
+        header.setTitle("Pull", for: .idle)
+        header.setTitle("Release to refresh", for: .pulling)
+        header.setTitle("Refreshing", for: .refreshing)
+        tableview.mj_header = header
+        header.setRefreshingTarget(self, refreshingAction: #selector(setup))
+        tableview.foot.setRefreshingTarget(self, refreshingAction: #selector(footerRefresh))
+        
         setup()
+    }
+    
+    @objc func notify(){
+        if let user = UserService.shared.currentUser{
+            getTimeLine(user: user)
+        }
+    }
+    
+    @objc func footerRefresh(){
+        UserService.shared.getModels(by: tableview.url, parameters: ["page":tableview.index+1], completionHandler: { [weak self](timelines:[ReceivedEventModel]) in
+            if timelines.isEmpty{
+                self?.tableview.mj_footer.resetNoMoreData()
+                self?.tableview.mj_footer.endRefreshingWithNoMoreData()
+            }else{
+                self?.dataArray.append(contentsOf: timelines)
+                self?.tableview.mj_footer.endRefreshing()
+                self?.tableview.reloadData()
+                self?.tableview.index = (self?.tableview.index ?? 0) + 1
+            }
+        })
     }
     
     deinit {
@@ -31,35 +75,34 @@ class TimeLineViewController:UIViewController{
     }
     
     func getTimeLine(user:UserModel){
-        UserService.shared.getModels(by: user.received_events_url, parameters: nil, completionHandler: { (timelines:[ReceivedEventModel]) in
-            self.dataArray = timelines
-            self.tableview.reloadData()
+        tableview.url = user.received_events_url
+        UserService.shared.getModels(by: user.received_events_url, parameters: nil, completionHandler: { [weak self](timelines:[ReceivedEventModel]) in
+            self?.dataArray = timelines
+            self?.tableview.reloadData()
+            self?.tableview.mj_header.endRefreshing()
+            self?.stopAnimating()
         })
     }
     
     @objc func setup(){
-        if let key = ACCESS_KEY{
-            
-            if let user = UserDataService.shared.getUser(by: key){
-                UserService.shared.currentUser = user
-                getTimeLine(user: user)
-            }else{
-                UserService.shared.getMyInfo{ (model) in
-                    self.getTimeLine(user: model)
-                }
+        startAnimating(CGSize(width: 32, height: 32),type: .lineScale)
+        if ACCESS_KEY != nil{
+            UserService.shared.getMyInfo { [weak self](model) in
+                UserDataService.shared.modifyUser(user: model)
+                self?.getTimeLine(user: model)
             }
-            
         }else{
             parent?.performSegue(withIdentifier: "addAccount", sender: nil)
+            stopAnimating()
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showUser"{
             let vc = segue.destination as? UserViewController
-            if let view = vc?.view as? UserView,let str = sender as? String{
+            if let str = sender as? String{
                 UserService.shared.getModel(by: str) { (user:UserModel) in
-                    view.setupOthers(with: user)
+                    vc?.userView.setupOthers(with: user)
                 }
             }
         }else if segue.identifier == "showRepo"{
@@ -93,10 +136,6 @@ extension TimeLineViewController: UITableViewDelegate,UITableViewDataSource{
         
         return cell!
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 64
-    }
 }
 
 extension TimeLineViewController: UITextViewDelegate{
@@ -105,7 +144,15 @@ extension TimeLineViewController: UITextViewDelegate{
             switch scheme{
             case "user":
                 //跳转到user
-                performSegue(withIdentifier: "showUser", sender: URL.absoluteString.split(separator: "?").last)
+                startAnimating(CGSize(width: 32, height: 32),type: .lineScale)
+                let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mine") as? MineViewController
+                vc?.isOwner = false
+                UserService.shared.getModel(by: String(URL.absoluteString.split(separator: "?").last ?? "")) { [weak self](user:UserModel) in
+                    vc?.user = user
+                    vc?.userView.setupOthers(with: user)
+                    self?.stopAnimating()
+                    self?.navigationController?.pushViewController(vc!, animated: true)
+                }
             case "repo":
                 //跳转到repo
                 performSegue(withIdentifier: "showRepo", sender: URL.absoluteString.split(separator: "?").last)

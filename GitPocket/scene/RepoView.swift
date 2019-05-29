@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Toaster
+import Toast_Swift
 
 protocol RepoViewDelegate: NSObjectProtocol {
     func tapIssue(url:String)
@@ -23,6 +25,7 @@ class RepoView: UIView {
     @IBOutlet weak var avatarView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var starImageView: UIImageView!
     @IBOutlet weak var despView: UITextView!
     @IBOutlet weak var branchNumLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
@@ -33,6 +36,9 @@ class RepoView: UIView {
     @IBOutlet weak var dateLabel: UILabel!
     
     weak var delegate:RepoViewDelegate?
+    let backIcon:UIImageView = UIImageView(image: UIImage(named: "back"))
+    var isStar:Bool?
+    var repo:RepoModel?
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -58,9 +64,57 @@ class RepoView: UIView {
         frameView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        
+        frameView.addSubview(backIcon)
+        backIcon.snp.makeConstraints { (make) in
+            make.top.equalTo(isIphoneX() ? 38:8)
+            make.leading.equalTo(20)
+            make.width.height.equalTo(24)
+        }
+        
+        starImageView.viewCallBack = {
+            guard let b = self.isStar,let repo = self.repo else{
+                return
+            }
+            
+            UserService.shared.starRepo(method: b ? .delete:.put, repoName: repo.name, ownerName: repo.owner.login){[weak self](bool) in
+                if bool{
+                    self?.isStar = !b
+                    if b{
+                        self?.setStarStyle(star: false)
+//                       Toast(text: "Unstar success").show()
+                        self?.superview?.makeToast("Unstar success", duration: 1.0, position: .center)
+
+                    }else{
+                        self?.setStarStyle(star: true)
+//                        Toast(text: "Star success").show()
+                        self?.superview?.makeToast("Star success", duration: 1.0, position: .center)
+                    }
+                }
+            }
+        }
+    }
+    
+    func setStarStyle(star:Bool){
+        if star{
+            starImageView.addColorImage(imageName: "star", color: UIColor(netHex: 0xe4508f))
+            starNumLabel.textColor = UIColor(netHex: 0xe4508f)
+        }else{
+            starImageView.addColorImage(imageName: "star", color: .white)
+            starNumLabel.textColor = .white
+        }
     }
     
     func setup(repo:RepoModel){
+        self.repo = repo
+        
+        UserService.shared.checkStar(repoName: repo.name, ownerName: repo.owner.login) { [weak self](b) in
+            self?.isStar = b
+            if b{
+                self?.setStarStyle(star: true)
+            }
+        }
+        
         if let url = URL(string: repo.owner.avatar_url ){
             bgView.sd_setImage(with: url)
             avatarView.sd_setImage(with: url)
@@ -118,7 +172,7 @@ class RepoView: UIView {
                 label.text = model
                 label.textAlignment = .center
                 
-                let size = model.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 15), options: [.usesLineFragmentOrigin], attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 11)], context: nil).size
+                let size = model.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 15), options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 11)], context: nil).size
                 label.frame.size = CGSize(width: size.width+10, height: size.height+2)
                 
                 label.frame.origin = CGPoint(x: initialX, y: 0)

@@ -36,6 +36,13 @@ class CommitListViewController: UIViewController{
                 let row = CommitTableViewRow()
                 row.heightCaculateType = .autoLayout
                 row.commit = model
+                row.selectionHandler = { _ in
+                    let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "commit") as? CommitDetailViewController
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                        vc?.setup(with: model)
+                    }
+                    self?.navigationController?.pushViewController(vc!, animated: true)
+                }
                 return row
             }))
             

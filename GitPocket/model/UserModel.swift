@@ -21,6 +21,13 @@ class UserModel: Object, HandyJSON{
     @objc dynamic var followers_url:String = ""
     @objc dynamic var following_url:String = ""
     @objc dynamic var repos_url:String = ""
+    @objc dynamic var url:String = ""
+    @objc dynamic var events_url:String = ""
+    @objc dynamic var blog:String = "-"
+    @objc dynamic var location:String = "-"
+    @objc dynamic var email:String = "-"
+    @objc dynamic var company:String = "-"
+    @objc dynamic var starred_url:String = ""
     
     override static func primaryKey() -> String? {
         return "access_token"

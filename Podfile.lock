@@ -1,34 +1,86 @@
 PODS:
-  - Alamofire (4.8.1)
+  - Alamofire (4.8.2)
+  - cmark-gfm-swift (0.1.0)
   - DJTableViewVM (1.5.0)
-  - HandyJSON (4.2.1)
-  - SDWebImage (4.4.6):
-    - SDWebImage/Core (= 4.4.6)
-  - SDWebImage/Core (4.4.6)
+  - HandyJSON (5.0.0-beta.1)
+  - Highlightr (2.1.0)
+  - MarkdownKit (1.5)
+  - MarkdownView (1.5.0)
+  - MJRefresh (3.1.16)
+  - NVActivityIndicatorView (4.7.0):
+    - NVActivityIndicatorView/Presenter (= 4.7.0)
+  - NVActivityIndicatorView/Presenter (4.7.0)
+  - SDWebImage (5.0.0):
+    - SDWebImage/Core (= 5.0.0)
+  - SDWebImage/Core (5.0.0)
   - SnapKit (4.2.0)
+  - SwiftyMarkdown (0.6.0)
+  - Toast-Swift (4.0.1)
+  - Toaster (2.2.0)
 
 DEPENDENCIES:
   - Alamofire
+  - cmark-gfm-swift (from `https://github.com/GitHawkApp/cmark-gfm-swift.git`, branch `master`)
   - DJTableViewVM
-  - HandyJSON
+  - HandyJSON (from `https://github.com/alibaba/HandyJSON.git`, branch `dev_for_swift5.0`)
+  - Highlightr
+  - MarkdownKit
+  - MarkdownView
+  - MJRefresh
+  - NVActivityIndicatorView
   - SDWebImage
   - SnapKit
+  - SwiftyMarkdown
+  - Toast-Swift
+  - Toaster
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - DJTableViewVM
-    - HandyJSON
+    - Highlightr
+    - MarkdownKit
+    - MarkdownView
+    - MJRefresh
+    - NVActivityIndicatorView
     - SDWebImage
     - SnapKit
+    - SwiftyMarkdown
+    - Toast-Swift
+    - Toaster
+
+EXTERNAL SOURCES:
+  cmark-gfm-swift:
+    :branch: master
+    :git: https://github.com/GitHawkApp/cmark-gfm-swift.git
+  HandyJSON:
+    :branch: dev_for_swift5.0
+    :git: https://github.com/alibaba/HandyJSON.git
+
+CHECKOUT OPTIONS:
+  cmark-gfm-swift:
+    :commit: 74cc625beed7cbcec5c1c50f2aba807e9246a73a
+    :git: https://github.com/GitHawkApp/cmark-gfm-swift.git
+  HandyJSON:
+    :commit: a2ba4e537711ae1fcd9183679c4db878eb171a78
+    :git: https://github.com/alibaba/HandyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  cmark-gfm-swift: 9915dfe0cd7feda740ab01fc2a1882989b6d5128
   DJTableViewVM: cbc53dac95f04be70b177dfe6ba52dbbc58930de
-  HandyJSON: d0c5fc80204f29056d59d3e5c4587fa0b16b60a8
-  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  HandyJSON: 582477127ab3ab65bd2e471815f1a7b846856978
+  Highlightr: 595f3e100737c8de41113385da8bd0b5b65212c6
+  MarkdownKit: 379028e9cd3ebf05ccac87205cd9aead446159d4
+  MarkdownView: 5bbee438c823db1cd189002d44c84fa909b3a896
+  MJRefresh: 7798e16e53a5ef7f332dd05b27664db4e29530fd
+  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
+  SDWebImage: 5de80a0302de9e377e62f47d2fa1304efff0e55f
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwiftyMarkdown: 698fe6b283dddac69747f4e08ed0d067c18e0356
+  Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
+  Toaster: c1a81b376edcc2470157b4d1ee1e9341d3b96455
 
-PODFILE CHECKSUM: 1514e92eff94431f0dea9805f902bc2d81f18781
+PODFILE CHECKSUM: 66d0ec4c956f99a0609d6a279ec1df98c340494c
 
 COCOAPODS: 1.5.2
